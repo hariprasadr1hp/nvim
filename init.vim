@@ -19,8 +19,13 @@ source $HOME/.config/nvim/plug-config/vim-airline.vim
 source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 
 " Plugin Configuration
-source $HOME/.config/nvim/plug-config/which-key.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
+source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/ranger.vim
+source $HOME/.config/nvim/plug-config/signify.vim
+source $HOME/.config/nvim/plug-config/vim-commentary.vim
+source $HOME/.config/nvim/plug-config/which-key.vim
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+

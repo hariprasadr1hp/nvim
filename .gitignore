@@ -1,3 +1,7 @@
 # directories
 plugged/
 undodir/
+
+
+#files
+.netrwhist

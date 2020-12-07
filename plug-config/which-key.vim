@@ -21,15 +21,23 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 " Define prefix dictionary
 let g:which_key_map =  {}
 
+" 'a' for action
+let g:which_key_map.a = {
+      \ 'name' : '+action'     ,
+      \ 'c' : ['gc'             , 'comment-line'],
+      \ 'h' : [':nohlsearch'    , 'nohlsearch'],
+      \ 't' : ['<C-^>'          , 'toggle-buffer'],
+      \ '?' : ['Buffers'        , 'fzf-buffer'],
+      \ }
+
 
 " 'b' for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer'     ,
       \ '1' : ['b1'            , 'buffer 1'],
       \ '2' : ['b2'            , 'buffer 2'],
-      \ 'd' : ['bd'            , 'delete-buffer'],
       \ 'f' : ['bfirst'        , 'first-buffer'],
-      \ 'h' : ['Startify'      , 'home-buffer'],
+      \ 'k' : ['bd'            , 'kill-buffer'],
       \ 'l' : ['blast'         , 'last-buffer'],
       \ 'n' : ['bnext'         , 'next-buffer'],
       \ 'p' : ['bprevious'     , 'previous-buffer'],
@@ -41,8 +49,9 @@ let g:which_key_map.b = {
 " 'e' for edit
 let g:which_key_map.e = {
       \ 'name' : '+edit' ,
-      \ 'e' : [':edit $HOME/.config/nvim/init.vim'               , 'init.vim'],
-      \ 'p' : [':edit $HOME/.config/nvim/vim-plug/plugins.vim'   , 'plugins.vim'],
+      \ 'e' : [':edit $HOME/.config/nvim/init.vim'              , 'init.vim'],
+      \ 'k' : [':edit $HOME/.config/nvim/keys/mappings.vim'     , 'mappings.vim'],
+      \ 'p' : [':edit $HOME/.config/nvim/vim-plug/plugins.vim'  , 'plugins.vim'],
       \ 'w' : [':edit $HOME/.config/nvim/plug-config/which-key.vim'   , 'which-key.vim'],
       \ }
 
@@ -50,23 +59,36 @@ let g:which_key_map.e = {
 " 'f' for file
 let g:which_key_map.f = {
       \ 'name' : '+file' ,
-      \ 's' : [':update'               , 'update-file'],
+      \ 's' : [':update'            , 'update-file'],
+      \ 'z' : ['Goyo'               , 'zen-mode'],
+      \ }
+
+
+" 'g' for git
+let g:which_key_map.g = {
+      \ 'name' : '+git' ,
+      \ 'g' : [':G'             , 'status-interactive'],
+      \ 'c' : [':Git commit'    , 'commit'],
+      \ 'i' : [':Git init'      , 'init'],
+      \ 'l' : [':Git log'       , 'log'],
+      \ 'm' : [':GV'            , 'magit-like'],
+      \ 'P' : [':Git push'      , 'Push'],
+      \ 'p' : [':Git pull'      , 'pull'],
+      \ 'q' : ['gq'             , 'quit'],
+      \ 's' : [':Git status'    , 'status'],
       \ }
 
 
 " 'l' for lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp',
-      \ 'f' : ['spacevim#lang#util#Format()'          , 'formatting'],
-      \ 'r' : ['spacevim#lang#util#FindReferences()'  , 'references'],
-      \ 'R' : ['spacevim#lang#util#Rename()'          , 'rename'],
-      \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol'],
-      \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'],
+      \ 'd' : [':LspPeekDefinition'     ,   'peek-definition'],
+      \ 'D' : [':LspPeekDeclaration'    ,   'peek-declaration'],
+      \ 'h' : [':LspHover'              ,   'hover-information'],
+      \ 'R' : [':LspRename'             ,   'Rename'],
       \ 'g' : {
         \ 'name': '+goto',
-        \ 'd' : ['spacevim#lang#util#Definition()'     , 'definition'],
-        \ 't' : ['spacevim#lang#util#TypeDefinition()' , 'type-definition'],
-        \ 'i' : ['spacevim#lang#util#Implementation()' , 'implementation'],
+        \ 'd' : ['gd'     , 'definition'],
         \ },
       \ }
 
@@ -74,8 +96,6 @@ let g:which_key_map.l = {
 " 'o' for open
 let g:which_key_map.o = {
       \ 'name' : '+open',
-      \ 'q' : 'open-quickfix',
-      \ 'l' : 'open-locationlist',
       \ 'r' : ['Ranger'             , 'ranger'],
       \ 't' : ['FloatermToggle'     , 'terminal'],
       \ }
@@ -84,9 +104,11 @@ let g:which_key_map.o = {
 " 'q' for quit
 let g:which_key_map.q = {
       \ 'name' : '+quit',
-      \ 'q' : [':q'     , 'quit unmodified'],
-      \ 'w' : [':wq'    , 'save and quit'],
-      \ '!' : [':q!'    , 'quit without saving'],
+      \ 'q' : [':q'         , 'quit, unmodified'],
+      \ 'a' : [':qa'        , 'quit-all, unmodified'],
+      \ 'u' : [':update'    , 'update-file'],
+      \ 'w' : [':wq'        , 'save and quit'],
+      \ '!' : [':q!'        , 'quit without saving'],
       \ }
 
 
@@ -134,4 +156,17 @@ let g:which_key_map['w'] = {
       \ '2' : ['<C-W>v'         , 'layout-double-columns'],
       \ '?' : ['Windows'        , 'fzf-window'],
       \ }
+
+
+" 'z' for fzf
+let g:which_key_map['z'] = {
+      \ 'name' : '+fzf',
+      \ 'b' : ['Buffers'        , 'Buffers'],
+      \ 'C' : ['Colors'         , 'Colors'],
+      \ 'c' : ['Commits'        , 'Commits'],
+      \ 'f' : ['Files'          , 'Files'],
+      \ 'v' : ['Commands'       , 'vim-commands'],
+      \ 'w' : ['Windows'        , 'Windows'],
+      \ }
+
 

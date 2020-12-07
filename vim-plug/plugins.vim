@@ -22,12 +22,38 @@ Plug 'machakann/vim-highlightedyank'
 " whichkey
 Plug 'liuchengxu/vim-which-key'
 
-" Terminal
+" floating terminal
 Plug 'voldikss/vim-floaterm'
 
-" Ranger
+" ranger
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+
+" zen mode
+Plug 'junegunn/goyo.vim'
+
+" commenting files
+Plug 'tpope/vim-commentary'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf.vim'
+
+" git
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
+
+" lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+" asynccomplete-lsp
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

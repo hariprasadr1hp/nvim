@@ -7,53 +7,63 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" my plugins
+" plugins
 
 call plug#begin('~/.config/nvim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugins for both the cases
+" ---
 
-" theme
-Plug 'joshdick/onedark.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'machakann/vim-highlightedyank'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" whichkey
-Plug 'liuchengxu/vim-which-key'
+if exists('g:vscode')
+    Plug 'ChristianChiarulli/vscode-easymotion'
+    Plug 'machakann/vim-highlightedyank'
 
-" floating terminal
-Plug 'voldikss/vim-floaterm'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ranger
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+else
+    " Easymotion
+    Plug 'easymotion/vim-easymotion'
 
-" zen mode
-Plug 'junegunn/goyo.vim'
+    " theme
+    Plug 'joshdick/onedark.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'machakann/vim-highlightedyank'
+    
+    " whichkey
+    Plug 'liuchengxu/vim-which-key'
 
-" commenting files
-Plug 'tpope/vim-commentary'
+    " floating terminal
+    Plug 'voldikss/vim-floaterm'
 
-" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf.vim'
+    " ranger
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
 
-" git
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
+    " zen mode
+    Plug 'junegunn/goyo.vim'
 
-" lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+    " commenting files
+    Plug 'tpope/vim-commentary'
 
-" asynccomplete-lsp
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    " fzf
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+    Plug 'junegunn/fzf.vim'
 
+    " git
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'junegunn/gv.vim'
+
+    " coc-lsp
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

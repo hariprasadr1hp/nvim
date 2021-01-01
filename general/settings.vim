@@ -25,11 +25,10 @@ set smartcase
 set mouse=a
 
 " autocompletion
-noremap! { {}<left>
-noremap! [ []<left>
-noremap! ( ()<left>
-noremap! ' ''<left>
-noremap! " ""<left>
+" noremap! { {}<left>
+" noremap! [ []<left>
+" noremap! ( ()<left>
+" noremap! ' ''<left>
 
 " misc
 set nowrap
@@ -42,6 +41,9 @@ set undofile
 set colorcolumn=80
 highlight Colorcolumn ctermbg=0 guibg=lightgrey
 
+
+" setting environment
+let g:python3_host_prog = '~/anaconda3/bin/python3.8'
 
 "#######################################################################
 

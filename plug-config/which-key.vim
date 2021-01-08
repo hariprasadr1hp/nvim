@@ -6,7 +6,7 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " By default timeoutlen is 1000 ms
 set timeoutlen=500
 
-" Minimal configuration with <Space> and <, >as 'leader' and 'local leader'
+" Minimal configuration with <Space> and <,> as 'leader' and 'local leader'
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
@@ -24,11 +24,30 @@ let g:which_key_map =  {}
 
 " 'a' for action
 let g:which_key_map.a = {
-      \ 'name' : '+action',
-      \ 'h' : [':nohlsearch'    , 'nohlsearch'],
-      \ '?' : ['Buffers'        , 'fzf-buffer'],
-      \ '/' : ['gc'             , 'comment-line'],
-      \ }
+    \ 'name' : '+action',
+    \ 'a' : {
+        \ 'name': '+activate',
+        \ 'c' : ['Codi'                 , 'activate-codi'],
+    \ },
+    \ 'd' : {
+        \ 'name': '+deactivate',
+        \ 'c' : ['Codi!'                , 'deactivate-codi'],
+    \ },
+    \ 'x' : {
+        \ 'name': '+cut',
+    \ },
+    \ 'c' : {
+        \ 'name': '+copy',
+    \ },
+    \ 'v' : {
+        \ 'name': '+paste',
+    \ },
+    \ 'h' : [':nohlsearch'    , 'nohlsearch'],
+    \ '?' : ['Buffers'        , 'fzf-buffer'],
+    \ '/' : ['gc'             , 'comment-line'],
+    \ }
+
+
 
 
 " 'b' for buffer
@@ -37,6 +56,7 @@ let g:which_key_map.b = {
       \ '1' : ['b1'            , 'buffer 1'],
       \ '2' : ['b2'            , 'buffer 2'],
       \ 'B' : ['Buffers'       , 'fzf-buffer'],
+      \ 'd' : ['bd'            , 'kill-buffer'],
       \ 'f' : ['bfirst'        , 'first-buffer'],
       \ 'k' : ['bd'            , 'kill-buffer'],
       \ 'l' : ['blast'         , 'last-buffer'],
@@ -52,19 +72,23 @@ let g:which_key_map.b = {
 " 'e' for edit
 let g:which_key_map.e = {
       \ 'name' : '+edit',
-      \ 'e' : [':edit $HOME/.config/nvim/init.vim'              , 'init.vim'],
-      \ 'c' : [':edit $HOME/.config/nvim/plug-config/coc.vim'   , 'coc.vim'],
-      \ 'k' : [':edit $HOME/.config/nvim/keys/mappings.vim'     , 'mappings.vim'],
-      \ 'p' : [':edit $HOME/.config/nvim/vim-plug/plugins.vim'  , 'plugins.vim'],
-      \ 's' : [':edit $HOME/.config/nvim/general/settings.vim'  , 'settings.vim'],
-      \ 't' : [':edit $HOME/.config/nvim/general/temp.vim'      , 'temp.vim'],
-      \ 'w' : [':edit $HOME/.config/nvim/plug-config/which-key.vim'   , 'which-key.vim'],
+      \ 'e' : [':vs $HOME/.config/nvim/init.vim'              , 'init.vim'],
+      \ 'c' : [':vs $HOME/.config/nvim/plug-config/coc.vim'   , 'coc.vim'],
+      \ 'C' : [':vs $HOME/.config/nvim/coc-settings.json'     , 'coc-settings.json'],
+      \ 'k' : [':vs $HOME/.config/nvim/keys/mappings.vim'     , 'mappings.vim'],
+      \ 'p' : [':vs $HOME/.config/nvim/vim-plug/plugins.vim'  , 'plugins.vim'],
+      \ 's' : [':vs $HOME/.config/nvim/general/settings.vim'  , 'settings.vim'],
+      \ 't' : [':vs $HOME/.config/nvim/general/temp.vim'      , 'temp.vim'],
+      \ 'w' : [':vs $HOME/.config/nvim/plug-config/which-key.vim'   , 'which-key.vim'],
       \ }
 
 
 " 'f' for file
 let g:which_key_map.f = {
       \ 'name' : '+file',
+      \ 'f' : [':Sex!' , 'Explore'],
+      \ 'p' : [':Files $HOME/.config/nvim/' , 'Find in Config'],
+      \ 'P' : [':vs $HOME/.config/nvim/' , 'Browse Config'],
       \ 's' : [':update'            , 'update-file'],
       \ 'z' : ['Goyo'               , 'zen-mode'],
       \ }
@@ -85,20 +109,57 @@ let g:which_key_map.g = {
       \ }
 
 
+" 'g' for git
+let g:which_key_map.h = {
+      \ 'name' : '+help',
+      \ 't' : ['Colors'        , 'load-theme'],
+      \ }
+
+
 " 'i' for insert
 let g:which_key_map.i = {
       \ 'name' : '+insert',
       \ }
 
 
-" 'l' for lsp
+
+
+" l is for lsp
 let g:which_key_map.l = {
-      \ 'name' : '+lsp',
-      \ 'g' : {
-        \ 'name': '+goto',
-        \ 'd' : ['gd'     , 'definition'],
-        \ },
+      \ 'name' : '+lsp' ,
+      \ '.' : [':CocConfig'                          , 'config'],
+      \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
+      \ 'a' : ['<Plug>(coc-codeaction)'              , 'code action'],
+      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
+      \ 'b' : [':CocNext'                            , 'next action'],
+      \ 'B' : [':CocPrev'                            , 'prev action'],
+      \ 'c' : [':CocList commands'                   , 'commands'],
+      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
+      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
+      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
+      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
+      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
+      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
+      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
+      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
+      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
+      \ 'O' : [':CocList outline'                    , 'search outline'],
+      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
+      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
+      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
+      \ 'r' : ['<Plug>(coc-references)'              , 'references'],
+      \ 's' : [':CocList -I symbols'                 , 'references'],
+      \ 'S' : [':CocList snippets'                   , 'snippets'],
+      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
+      \ 'u' : [':CocListResume'                      , 'resume list'],
+      \ 'U' : [':CocUpdate'                          , 'update CoC'],
+      \ 'x' : [':CocList extensions'                 , 'extensions'],
+      \ 'z' : [':CocDisable'                         , 'disable CoC'],
+      \ 'Z' : [':CocEnable'                          , 'enable CoC'],
       \ }
+      " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
+
+
 
 
 " 'o' for open
@@ -143,6 +204,8 @@ let g:which_key_map.t = {
       \ 'b' : ['<C-^>'              , 'buffer'],
       \ 'h' : [':set hls!'          , 'hlsearch'],
       \ 't' : [':terminal.Toggle'   , 'terminal'],
+      \ 'u' : ['UndotreeToggle'     , 'undotree'],
+      \ 'z' : ['Goyo'               , 'zen-mode'],
       \ }
 
 
@@ -173,12 +236,17 @@ let g:which_key_map['w'] = {
 " 'z' for fzf
 let g:which_key_map['z'] = {
       \ 'name' : '+fzf',
-      \ 'b' : ['Buffers'        , 'Buffers'],
+      \ 'b' : ['Buffers'        , 'buffers'],
       \ 'C' : ['Colors'         , 'Colors'],
-      \ 'c' : ['Commits'        , 'Commits'],
-      \ 'f' : ['Files'          , 'Files'],
+      \ 'c' : ['Commits'        , 'commits'],
+      \ 'f' : ['Files'          , 'files'],
+      \ 'l' : ['Lines'          , 'lines'],
+      \ 'm' : ['Marks'          , 'marks'],
+      \ 'r' : ['History'        , 'recent files'],
+      \ 't' : ['Tags'           , 'tags'],
       \ 'v' : ['Commands'       , 'vim-commands'],
-      \ 'w' : ['Windows'        , 'Windows'],
+      \ 'w' : ['Windows'        , 'windows'],
+      \ 'z' : ['Rg'             , 'Rg'],
       \ }
 
 

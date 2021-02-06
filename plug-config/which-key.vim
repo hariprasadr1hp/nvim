@@ -185,7 +185,7 @@ let g:which_key_map.q = {
 " 'r' for reload
 let g:which_key_map.r = {
       \ 'name' : '+reload',
-      \ 'r' : [':source $HOME/.config/nvim/init.vim'               , 'init.vim'],
+      \ 'r' : [':source $HOME/.config/nvim/init.vim' , 'reload'],
       \ }
 
 " 's' for search
@@ -203,6 +203,7 @@ let g:which_key_map.t = {
       \ 'name' : '+toggle',
       \ 'b' : ['<C-^>'              , 'buffer'],
       \ 'h' : [':set hls!'          , 'hlsearch'],
+      \ 's' : [':set spell!'        , 'spell-check'],
       \ 't' : [':terminal.Toggle'   , 'terminal'],
       \ 'u' : ['UndotreeToggle'     , 'undotree'],
       \ 'z' : ['Goyo'               , 'zen-mode'],

@@ -26,6 +26,9 @@ nnoremap <Space><Space> :Files<CR>
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
+" move lines using 'Alt', vscode-like
+nnoremap <M-Up> :move -2<CR>
+nnoremap <M-Down> :move +1<CR>
 
 " close brackets
 " inoremap ( ()<left>

@@ -1,0 +1,151 @@
+#+title: Key Maps
+
+* Other Keys
+<leader><leader> :Telescope find_files<CR>
+
+
+* a - action
+** aa - activate
++ aac :: :Codi
+** ad - deactivate
+** ac - copy
+** ax - cut
+** av - paste
+
+
+* b - buffer
++ <space>b1 :: :b1
++ <space>b2 :: :b2
++ <space>bB :: :Telescope buffers
++ <space>bd :: :bd
++ <space>bf :: :bfirst
++ <space>bk :: :bd
++ <space>bl :: :blast
++ <space>bn :: :bnext
++ <space>bp :: :bprevious
++ <space>bt :: <C-^>
++ <space>b? :: :Telescope buffers
++ <space>b] :: :bnext
++ <space>b[ :: :bprevious
+
+
+* e - edit
++ <space>ee :: :vs $HOME/.config/nvim/init.lua
++ <space>ef :: :vs $HOME/.config/nvim/lua/functions.lua
++ <space>ek :: :vs $HOME/.config/nvim/lua/keybindings.lua
++ <space>em :: :vs $HOME/.config/nvim/lua/mappings.lua
++ <space>ep :: :vs $HOME/.config/nvim/lua/plugins.lua
++ <space>es :: :vs $HOME/.config/nvim/lua/settings.lua
++ <space>et :: :vs $HOME/.config/nvim/lua/temp.lua
++ <space>ew :: :vs $HOME/.config/nvim/vimscript/plug-config/which-key.vim
+
+
+* f - file
++ <space>ff :: :Sex!
++ <space>fP :: :vs $HOME/.config/nvim/
++ <space>fs :: :update
++ <space>fz :: :Goyo
+
+
+* g - git
++ <space>gb :: :Telescope git_branches
++ <space>gc :: :Telescope git_commits
++ <space>gf :: :Telescope git_files
++ <space>gg :: :Telescope git_status
++ <space>gs :: :Telescope git_status
+
+
+* h - help
++ <space>hl :: :help :lua
++ <space>ht :: :Telescope colorscheme
+
+
+* i - insert
+
+
+* l - lsp
++ <space>la :: :Lspsaga code_action
++ <space>lA :: :Lspsaga range_code_action
++ <space>ld :: :Telescope lsp_document_diagnostics
++ <space>lD :: :Telescope lsp_workspace_diagnostics
++ <space>lf :: :LspFormatting
++ <space>lH :: :Lspsaga signature_help
++ <space>lI :: :LspInfo
++ <space>lv :: :LspVirtualTextToggle
++ <space>ll :: :Lspsaga lsp_finder
++ <space>lL :: :Lspsaga show_line_diagnostics
++ <space>lo :: :Vista!!
++ <space>lp :: :Lspsaga preview_definition
++ <space>lq :: :Telescope quickfix
++ <space>lr :: :Lspsaga rename
++ <space>lT :: :LspTypeDefinition
++ <space>lx :: :cclose
++ <space>ls :: :Telescope lsp_document_symbols
++ <space>lS :: :Telescope lsp_workspace_symbols
+
+
+* o -open
++ <space>oe :: :NvimTreeToggle
++ <space>or :: :RnvimrToggle
++ <space>ot :: :FloatermToggle
+
+
+* q - quit
++ <space>qq :: :q
++ <space>qa :: :qa
++ <space>qr :: :luafile $HOME/.config/nvim/init.lua
++ <space>qu :: :update
++ <space>qw :: :wq
++ <space>q! :: :q!
+
+
+* r - reload
++ <space>rr :: :luafile $HOME/.config/nvim/init.lua
+
+
+* s - search
+
+
+* t - toggle
++ <space>tb :: <C-^>
++ <space>te :: :NvimTreeToggle
++ <space>th :: :set hls!
++ <space>ts :: :set spell!
++ <space>tt :: :FloatermToggle
++ <space>tz :: :Goyo
+
+
+* w - window
++ <space>wb :: <C-^>
++ <space>wc :: <C-W>c
++ <space>wh :: <C-W>h
++ <space>wj :: <C-W>j
++ <space>wk :: <C-W>k
++ <space>wl :: <C-W>l
++ <space>wH :: <C-W>5<
++ <space>wJ :: :resize +5
++ <space>wK :: :resize -5
++ <space>wL :: <C-W>5>
++ <space>ws :: <C-W>s
++ <space>wv :: <C-W>v
++ <space>ww :: <C-W>w
++ <space>w- :: <C-W>s
++ <space>w| :: <C-W>v
++ <space>w= :: <C-W>=
++ <space>w2 :: <C-W>v
+
+
+* z - Telescope
++ <space>zb :: :Telescope buffers
++ <space>zC :: :Telescope colorscheme
++ <space>zc :: :Telescope git_commits
++ <space>zf :: :Telescope find_files
++ <space>zh :: :Telescope command_history
++ <space>zl :: :Telescope Lines
++ <space>zm :: :Telescope marks
++ <space>zr :: :Telescope registers
++ <space>zt :: :Telescope tags
++ <space>zv :: :Telescope commands
++ <space>zw :: :Telescope file_browser
++ <space>zz :: :Telescope live_grep
++ <space>zZ :: :Telescope grep_string

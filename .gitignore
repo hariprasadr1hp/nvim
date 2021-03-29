@@ -1,9 +1,9 @@
 # directories
-plugged/
+plugin/
 undodir/
 
 
 #files
-general/temp.vim
+vimscript/temp.vim
 .netrwhist
 tags

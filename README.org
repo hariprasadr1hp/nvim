@@ -6,16 +6,21 @@ nvim customized for c++ and python development
 
 * Setup
 + Install ~neovim~
-#+BEGIN_SRC bash
+#+begin_src sh
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install neovim
-#+END_SRC
+#+end_src
 
+
++ Using ~packer.nvim~ as the plugin configuration
+#+begin_src sh
+git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+#+end_src
 
 + Clone the repository
-#+BEGIN_SRC bash
+#+begin_src sh
 cd $HOME/.config/
 git clone https://hariprasadr1hp/nvim
-#+END_SRC
-
+#+end_src
